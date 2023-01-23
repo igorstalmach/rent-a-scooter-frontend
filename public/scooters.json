@@ -1,0 +1,31 @@
+{
+	"scooterList": [
+		{
+            "id": 1,
+            "name": "Scooter #7356",
+            "batteryLevel": "78%",
+            "position": {
+                "lat": 51.108,
+                "len": 17.057
+            }
+        },
+        {
+            "id": 2,
+            "name": "Scooter #3642",
+            "batteryLevel": "21%",
+            "position": {
+                "lat": 51.112,
+                "len": 17.062
+            }
+        },
+        {
+            "id": 3,
+            "name": "Scooter #2289",
+            "batteryLevel": "45%",
+            "position": {
+                "lat": 51.111,
+                "len": 17.058
+            }
+        }
+	]
+}

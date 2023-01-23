@@ -1,0 +1,43 @@
+.scooter-container {
+  display: grid;
+  align-items: center;
+  width: 50vw;
+  grid-template-columns: 40% 60%;
+  border-radius: 15px;
+  height: 8vh;
+}
+
+.scooter-icon {
+  justify-self: center;
+  grid-column: 1/2;
+  height: 7vw;
+}
+
+.scooter-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: flex-start;
+  height: 3vh;
+}
+
+.scooter-text {
+  font-family: "Be Vietnam Pro", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 2.5vw;
+  margin: 0;
+}
+
+.battery {
+  display: flex;
+  align-items: center;
+}
+
+.battery-icon {
+  padding-right: 5px;
+  height: 2.25vh;
+}
+
+/*# sourceMappingURL=Scooter.css.map */

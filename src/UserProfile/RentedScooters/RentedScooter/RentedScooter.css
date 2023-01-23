@@ -1,0 +1,39 @@
+.rented-scooter-container {
+  display: grid;
+  align-items: center;
+  width: 70vw;
+  grid-template-columns: 20% 35% 40% 5%;
+  border-radius: 15px;
+  height: 8vh;
+}
+
+#rented-scooter-text {
+  justify-self: center;
+}
+
+.rented-scooter-button {
+  justify-self: flex-end;
+  font-size: 0.8rem;
+  padding: 0.5vw;
+  grid-column: 3/4;
+  grid-row: 1/2;
+  width: 13vw;
+}
+
+.rented-scooter-text {
+  font-family: "Be Vietnam Pro", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.rented-scooter-text {
+  display: flex;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=RentedScooter.css.map */
