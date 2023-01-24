@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import './UserProfile.sass';
 import {UserPanel} from "./UserPanel/UserPanel";
 import {RentedScooters} from "./RentedScooters/RentedScooters";
+import axios from "axios";
 
 export interface RentedScooterItem {
     id: number,
@@ -20,25 +21,12 @@ export function UserProfile() {
     const [rentedScooters, setRentedScooters] = useState<RentedScooterItems>();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('../../user.json');
-
-                if (response.ok) {
-                    return await response.json()
-                }
-                throw new Error('Request failed!');
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        fetchData().then(response => {
-            setBalance(response.user.balance);
+        axios.get('../../user.json').then(response => {
+            setBalance(response.data.user.balance);
             let newRentedScooterList: RentedScooterItems = {
                 rentedScooterList: []
             };
-            for(const scooter of response.user.rentedScooterList) {
+            for(const scooter of response.data.user.rentedScooterList) {
                 let newScooter: RentedScooterItem = {
                     id: scooter.id,
                     name: scooter.name,
@@ -49,8 +37,8 @@ export function UserProfile() {
                 newRentedScooterList.rentedScooterList.push(newScooter)
             }
             setRentedScooters(newRentedScooterList);
-        });
-    });
+        })
+    }, [])
 
     return(
         <div className='user-profile-container'>

@@ -3,6 +3,7 @@ import './ScooterPanel.sass';
 import {Scooter} from "./Scooter/Scooter";
 import {RentButton} from "./RentButton/RentButton";
 import {Map} from "./Map/Map";
+import axios from "axios";
 
 export interface ScooterItem {
     id: number,
@@ -21,24 +22,11 @@ export function ScooterPanel() {
     const [selectedScooter, setSelectedScooter] = useState<ScooterItem>();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('../../scooters.json');
-
-                if (response.ok) {
-                    return await response.json()
-                }
-                throw new Error('Request failed!');
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        fetchData().then(response => {
+        axios.get('../../scooters.json').then(response => {
             let newScooterList: RentedScooterItems = {
                 scooterList: []
             };
-            for(const scooter of response.scooterList) {
+            for(const scooter of response.data.scooterList) {
                 let newScooter: ScooterItem = {
                     id: scooter.id,
                     name: scooter.name,
@@ -49,8 +37,8 @@ export function ScooterPanel() {
                 newScooterList.scooterList.push(newScooter)
             }
             setScooterList(newScooterList);
-        });
-    });
+        })
+    }, [])
 
     function chooseScooter(): JSX.Element[] | undefined {
             return scooters?.scooterList.map(scooter => {
