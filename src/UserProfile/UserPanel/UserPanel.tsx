@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import './UserPanel.sass';
-import {AddMoney} from "../AddMoney/AddMoney";
+import {AddMoney} from "./AddMoney/AddMoney";
 
 interface Props {
-    balance: number,
-    setBalance: React.Dispatch<React.SetStateAction<number>>
+    balance: number | undefined,
+    setBalance: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
 export function UserPanel(props: Props) {

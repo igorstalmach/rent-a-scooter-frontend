@@ -23,7 +23,6 @@ export function ScooterPanel() {
 
     useEffect(() => {
         axios.get('http://192.168.1.142:8080/api/scooter/list').then(response => {
-            console.log(response.data)
             let newScooterList: RentedScooterItems = {
                 scooterList: []
             };
@@ -35,7 +34,6 @@ export function ScooterPanel() {
                     isActive: false,
                     position: [Number(scooter.scooterStatus.locLat), Number(scooter.scooterStatus.locLength)]
                 };
-                console.log(newScooter.position)
                 newScooterList.scooterList.push(newScooter)
             }
             setScooterList(newScooterList);

@@ -17,16 +17,16 @@ export interface RentedScooterItems {
 }
 
 export function UserProfile() {
-    const [balance, setBalance] = useState<number>(1500);
+    const [balance, setBalance] = useState<number | undefined>();
     const [rentedScooters, setRentedScooters] = useState<RentedScooterItems>();
 
     useEffect(() => {
-        axios.get('../../user.json').then(response => {
-            setBalance(response.data.user.balance);
+        axios.get('http://192.168.1.142:8080/api/user/info?userName=customer').then(response => {
+            setBalance(response.data.balance);
             let newRentedScooterList: RentedScooterItems = {
                 rentedScooterList: []
             };
-            for(const scooter of response.data.user.rentedScooterList) {
+            for(const scooter of response.data.rentedScooterList) {
                 let newScooter: RentedScooterItem = {
                     id: scooter.id,
                     name: scooter.name,

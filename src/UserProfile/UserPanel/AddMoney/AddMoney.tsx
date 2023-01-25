@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import './AddMoney.sass';
 
 interface Props {
-    setBalance: React.Dispatch<React.SetStateAction<number>>
+    setBalance: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
 export function AddMoney(props: Props) {
