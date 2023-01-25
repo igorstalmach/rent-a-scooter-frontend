@@ -29,7 +29,7 @@ export function Scooter(props: Props) {
                 <p className='scooter-text'>{props.name}</p>
                 <div className='battery'>
                     <img src={require('../../Assets/battery-icon.png')} alt='Scooter battery icon' className='battery-icon'/>
-                    <p className='scooter-text'>{props.batteryLevel}</p>
+                    <p className='scooter-text'>{props.batteryLevel}%</p>
                 </div>
             </div>
         </div>

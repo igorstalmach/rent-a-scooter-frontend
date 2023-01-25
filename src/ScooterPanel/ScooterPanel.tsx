@@ -10,7 +10,7 @@ export interface ScooterItem {
     name: string,
     batteryLevel: string,
     isActive: boolean,
-    position: any,
+    position: number[],
 }
 
 export interface RentedScooterItems {
@@ -22,18 +22,20 @@ export function ScooterPanel() {
     const [selectedScooter, setSelectedScooter] = useState<ScooterItem>();
 
     useEffect(() => {
-        axios.get('../../scooters.json').then(response => {
+        axios.get('http://192.168.1.142:8080/api/scooter/list').then(response => {
+            console.log(response.data)
             let newScooterList: RentedScooterItems = {
                 scooterList: []
             };
-            for(const scooter of response.data.scooterList) {
+            for(const scooter of response.data) {
                 let newScooter: ScooterItem = {
-                    id: scooter.id,
-                    name: scooter.name,
-                    batteryLevel: scooter.batteryLevel,
+                    id: scooter.serialNumber,
+                    name: scooter.model,
+                    batteryLevel: scooter.scooterStatus.remainingBatteryPercent,
                     isActive: false,
-                    position: scooter.position
+                    position: [Number(scooter.scooterStatus.locLat), Number(scooter.scooterStatus.locLength)]
                 };
+                console.log(newScooter.position)
                 newScooterList.scooterList.push(newScooter)
             }
             setScooterList(newScooterList);
@@ -55,7 +57,7 @@ export function ScooterPanel() {
 
     return (
         <div className='scooter-panel-container'>
-            { scooters !== undefined ? <Map scooters={scooters} currPos={selectedScooter}/> : null}
+            { scooters !== undefined ? <Map scooters={scooters} selectedScooter={selectedScooter}/> : null}
             <div className='chooser-container'>
                 <ul>
                     {chooseScooter()}
