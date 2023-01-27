@@ -3,8 +3,7 @@ import './UserPanel.sass';
 import {AddMoney} from "./AddMoney/AddMoney";
 
 interface Props {
-    balance: number | undefined,
-    setBalance: React.Dispatch<React.SetStateAction<number | undefined>>
+    balance: number | undefined
 }
 
 export function UserPanel(props: Props) {
@@ -21,7 +20,7 @@ export function UserPanel(props: Props) {
                 <p id='user-balance-text'>Stan konta</p>
                 <button onClick={toggleShowAddMoney} id='user-add-money'>+ Doładuj konto</button>
             </div>
-            { showAddMoney ? <AddMoney setBalance={props.setBalance}/> : null }
+            { showAddMoney ? <AddMoney/> : null }
         </>
     );
 }
