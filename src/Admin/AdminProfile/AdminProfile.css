@@ -1,0 +1,9 @@
+.logout-button {
+  display: flex;
+  justify-content: center;
+  margin: 7vw;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+/*# sourceMappingURL=AdminProfile.css.map */

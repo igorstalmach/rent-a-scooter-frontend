@@ -1,0 +1,17 @@
+.login-container {
+  display: flex;
+  flex-flow: column;
+  grid-column: 2/3;
+}
+
+.login-text {
+  font-family: "Be Vietnam Pro", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 2.5vw;
+  margin-top: 5vw;
+}
+
+.login-button {
+  margin-top: 7vw;
+}
+
+/*# sourceMappingURL=Login.css.map */

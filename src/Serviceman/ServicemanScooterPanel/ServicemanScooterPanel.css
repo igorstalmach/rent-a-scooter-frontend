@@ -1,0 +1,32 @@
+.chooser-container {
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+  background: #E5FAF7;
+  width: 60vw;
+  min-height: 70vw;
+  box-shadow: 0 2.9px 11.3px rgba(0, 0, 0, 0.25), 0 6.7px 20.9px rgba(0, 0, 0, 0.185), 0 12.1px 28.9px rgba(0, 0, 0, 0.157), 0 20.1px 35.3px rgba(0, 0, 0, 0.135), 0 33.1px 40.6px rgba(0, 0, 0, 0.115), 0 57.8px 47.8px rgba(0, 0, 0, 0.093), 0 125px 80px rgba(0, 0, 0, 0.065);
+  border-radius: 15px;
+}
+.chooser-container ul {
+  padding: 0;
+}
+.chooser-container ul li {
+  list-style-type: none;
+}
+
+.rent-button {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1vh;
+}
+
+.scooter-panel-container {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+/*# sourceMappingURL=ServicemanScooterPanel.css.map */
