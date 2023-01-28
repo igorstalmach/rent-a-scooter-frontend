@@ -2,6 +2,7 @@ import './NonfunctionalScooter.sass';
 import {NonfunctionalScooterItem} from "../ServicemanScooterPanel";
 import React from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
     id: number,
@@ -14,11 +15,13 @@ interface Props {
 }
 
 export function NonfunctionalScooter(props: Props) {
+    const navigate = useNavigate();
+
     function handleRestoreSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
 
         axios.delete("http://192.168.1.142:8080/api/serviceman/scooter?userName=serviceman&serialNumber="+String(props.id)).then(response => {
-            window.location.reload();
+            navigate('/user-profile');
         })
     }
 

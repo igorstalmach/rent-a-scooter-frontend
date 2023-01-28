@@ -9,7 +9,7 @@ interface Props {
     batteryLevel: string,
     isActive: boolean,
     position: number[],
-    state: string,
+    state: boolean,
     setSelectedScooter: React.Dispatch<React.SetStateAction<AdminScooterItem | undefined>>
 }
 
@@ -33,7 +33,7 @@ export function AdminScooter(props: Props) {
                 </div>
             </div>
             <button className='nf-scooter-button' onClick={(e) => handleDeleteSubmit(e)}>Usuń</button>
-            <p className='nf-scooter-text-reason'>Stan: {props.state === 'false' ? 'Ukryta' : 'Widoczna'}</p>
+            <p className='nf-scooter-text-reason'>Stan: {!props.state ? 'Ukryta' : 'Widoczna'}</p>
         </div>
     );
 }

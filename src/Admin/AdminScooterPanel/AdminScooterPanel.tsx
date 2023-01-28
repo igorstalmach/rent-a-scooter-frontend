@@ -13,7 +13,7 @@ export interface AdminScooterItem {
     batteryLevel: string,
     isActive: boolean,
     position: number[],
-    state: string
+    state: boolean
 }
 
 
@@ -22,7 +22,7 @@ export function AdminScooterPanel() {
     const [selectedScooter, setSelectedScooter] = useState<AdminScooterItem>();
 
     useEffect(() => {
-        axios.get('http://192.168.1.142:8080/api/serviceman/scooter/list/all?userName=serviceman').then(response => {
+        axios.get('http://192.168.1.142:8080/api/admin/scooter/list/all?userName=admin').then(response => {
             let newScooterList: AdminScooterItem[] = []
             for(const scooter of response.data) {
                 let newScooter: AdminScooterItem = {

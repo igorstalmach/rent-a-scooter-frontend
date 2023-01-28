@@ -2,6 +2,7 @@ import './RentedScooter.sass';
 import '../../../UserScooterPanel/Scooter/Scooter.sass'
 import React from "react";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 interface Props {
     id: number,
@@ -25,17 +26,26 @@ export function RentedScooter(props: Props) {
         })
     }
 
-    function handleReportSubmit(e: React.FormEvent<HTMLButtonElement>) {
+    async function handleReportSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault()
 
-        const postData = {
-            "userName": "customer",
-            "serialNumber": String(props.id),
-            "reason": "test"
-        }
+        await Swal.fire({
+          input: 'textarea',
+          inputLabel: 'Wpisz powód zgłoszenia.',
+          inputPlaceholder: 'Powód...',
+          showCancelButton: true
+        }).then(result => {
+            if (result.isConfirmed) {
+                const postData = {
+                    "userName": "customer",
+                    "serialNumber": String(props.id),
+                    "reason": result.value
+                }
 
-        axios.post("http://192.168.1.142:8080/api/scooter/hidden", postData).then(response => {
-            window.location.reload();
+                axios.post("http://192.168.1.142:8080/api/scooter/hidden", postData).then(response => {
+                    window.location.reload();
+                })
+            }
         })
     }
 
@@ -51,7 +61,7 @@ export function RentedScooter(props: Props) {
             </div>
             <div className='button-container'>
                 <button className='rented-scooter-button' onClick={(e) => handleHandoverSubmit(e)}>Zakończ przejazd</button>
-                <button className='rented-scooter-button' onClick={(e) => handleReportSubmit(e)}>Zgłoś</button>
+                <button className='rented-scooter-button' onClick={(e) => handleReportSubmit(e)}>Zgłoś i zakończ</button>
             </div>
         </div>
     );
