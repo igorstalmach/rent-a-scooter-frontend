@@ -20,7 +20,7 @@ export function Map(props: Props) {
     function displayScooters(): JSX.Element[] {
         return props.scooters.map(scooter => {
             return (
-                <Marker position={[scooter.position[0], scooter.position[1]]}>
+                <Marker position={[scooter.position[0], scooter.position[1]]} key={scooter.id}>
                     <Popup>
                         {scooter.name}
                     </Popup>

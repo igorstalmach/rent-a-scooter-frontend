@@ -2,7 +2,7 @@ import React from "react";
 import './RentButton.sass';
 import axios from "axios";
 import {RentedScooterItem} from "../UserScooterPanel";
-import {redirect, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
     selectedScooter: RentedScooterItem,
