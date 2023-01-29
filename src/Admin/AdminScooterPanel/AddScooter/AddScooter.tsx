@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "axios";
 import './AddScooter.sass';
+import {useNavigate} from "react-router-dom";
 
 
 export function AddScooter() {
+    const navigate = useNavigate();
+
     function handleClick(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
 
@@ -24,7 +27,7 @@ export function AddScooter() {
         console.log(postData);
 
         axios.post("http://192.168.1.142:8080/api/admin/scooter", postData).then(response => {
-            window.location.reload();
+            navigate('/user-profile');
         })
     }
 

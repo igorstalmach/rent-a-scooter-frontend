@@ -2,6 +2,7 @@ import './AdminScooter.sass';
 import React from "react";
 import axios from "axios";
 import {AdminScooterItem} from "../AdminScooterPanel";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
     id: number,
@@ -14,11 +15,13 @@ interface Props {
 }
 
 export function AdminScooter(props: Props) {
+    const navigate = useNavigate();
+
     function handleDeleteSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
 
         axios.delete("http://192.168.1.142:8080/api/admin/scooter?userName=admin&serialNumber="+String(props.id)).then(response => {
-            window.location.reload();
+            navigate('/user-profile');
         })
     }
 
@@ -33,7 +36,7 @@ export function AdminScooter(props: Props) {
                 </div>
             </div>
             <button className='nf-scooter-button' onClick={(e) => handleDeleteSubmit(e)}>Usuń</button>
-            <p className='nf-scooter-text-reason'>Stan: {!props.state ? 'Ukryta' : 'Widoczna'}</p>
+            <p className='nf-scooter-text-reason'>Stan: {!props.state ? 'Widoczna' : 'Ukryta'}</p>
         </div>
     );
 }
