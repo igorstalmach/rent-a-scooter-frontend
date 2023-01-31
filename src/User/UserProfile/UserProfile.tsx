@@ -11,6 +11,7 @@ export interface RentedScooterItem {
     name: string,
     batteryLevel: string,
     rentalTime: number,
+    price: number
 }
 
 
@@ -27,7 +28,8 @@ export function UserProfile() {
                     id: scooter.serialNumber,
                     name: scooter.model,
                     batteryLevel: scooter.remainingBatteryPercent,
-                    rentalTime: scooter.secondsOfRental
+                    rentalTime: scooter.secondsOfRental,
+                    price: scooter.price
                 };
                 newRentedScooterList.push(newScooter);
             }

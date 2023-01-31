@@ -12,7 +12,7 @@ export function RentedScooters(props: Props) {
     function showRentedScooters(): JSX.Element[] | undefined {
         return props.rentedScooters?.map(scooter => {
             return <li key={scooter.id}>
-                <RentedScooter id={scooter.id} elapsedTime={calculateTime(scooter.rentalTime)}/>
+                <RentedScooter id={scooter.id} elapsedTime={calculateTime(scooter.rentalTime)} price={scooter.price}/>
             </li>
         });
     }
