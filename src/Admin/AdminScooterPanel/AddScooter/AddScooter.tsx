@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import './AddScooter.sass';
 import {useNavigate} from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 export function AddScooter() {
@@ -12,8 +13,8 @@ export function AddScooter() {
 
         const postData = {
             "userName": "admin",
-            "model": document.getElementsByTagName("input")[0].value ,
-            "color": document.getElementsByTagName("input")[1].value ,
+            "model": document.getElementsByTagName("input")[0].value,
+            "color": document.getElementsByTagName("input")[1].value,
             "maxSpeed": document.getElementsByTagName("input")[2].value,
             "manufacturer": document.getElementsByTagName("input")[3].value,
             "serialNumber": document.getElementsByTagName("input")[4].value,
@@ -24,11 +25,27 @@ export function AddScooter() {
             "locLength": document.getElementsByTagName("input")[8].value
         }
 
-        console.log(postData);
-
-        axios.post("http://192.168.1.142:8080/api/admin/scooter", postData).then(response => {
-            navigate('/user-profile');
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
         })
+
+        if (postData.model === "" || postData.color === "" || postData.maxSpeed === "" || postData.manufacturer === "" || postData.serialNumber === "" || postData.isHidden === "" || postData.batteryMeters === "" || postData.remainingBatteryPercent === "" || postData.locLat === "" || postData.locLength === "") {
+            Toast.fire({
+              title: 'Wypełnij wszystkie pola'
+            })
+        } else {
+            axios.post("http://192.168.1.142:8080/api/admin/scooter", postData).then(response => {
+                navigate('/user-profile');
+            })
+        }
     }
 
     return(
