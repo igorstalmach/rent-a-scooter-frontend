@@ -16,7 +16,7 @@ export interface RentedScooterItem {
 
 
 export function UserProfile() {
-    const [balance, setBalance] = useState<number | undefined>();
+    const [balance, setBalance] = useState<number>(0);
     const [rentedScooters, setRentedScooters] = useState<RentedScooterItem[]>();
 
     useEffect(() => {

@@ -3,7 +3,7 @@ import './UserPanel.sass';
 import {AddMoney} from "./AddMoney/AddMoney";
 
 interface Props {
-    balance: number | undefined
+    balance: number
 }
 
 export function UserPanel(props: Props) {
@@ -16,7 +16,7 @@ export function UserPanel(props: Props) {
     return(
         <>
             <div className='user-panel-container'>
-                <p id='user-balance-display'>{props.balance} PLN</p>
+                <p id='user-balance-display'>{props.balance < 9999 ? props.balance : String(props.balance).slice(0, 5) + ".."}PLN</p>
                 <p id='user-balance-text'>Stan konta</p>
                 <button onClick={toggleShowAddMoney} id='user-add-money'>+ Doładuj konto</button>
             </div>

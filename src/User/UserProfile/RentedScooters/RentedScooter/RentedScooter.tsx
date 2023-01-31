@@ -6,10 +6,10 @@ import Swal from 'sweetalert2';
 
 interface Props {
     id: number,
-    name?: string,
+    name: string,
     batteryLevel?: string,
     elapsedTime: number,
-    price?: number
+    price: number
 }
 
 export function RentedScooter(props: Props) {

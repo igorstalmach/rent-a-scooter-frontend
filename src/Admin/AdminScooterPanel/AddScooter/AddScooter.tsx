@@ -73,8 +73,8 @@ export function AddScooter() {
             <label>
                 <p className='add-scooter-text'>Widoczność</p>
                 <select id="visibility" name="visibility">
-                    <option value="true">Tak</option>
-                    <option value="false">Nie</option>
+                    <option value="true">Nie</option>
+                    <option value="false">Tak</option>
                 </select>
             </label>
             <label>
