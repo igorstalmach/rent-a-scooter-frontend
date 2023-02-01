@@ -20,7 +20,7 @@ export function NonfunctionalScooter(props: Props) {
     function handleRestoreSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
 
-        axios.delete("http://192.168.1.142:8080/api/serviceman/scooter?userName=serviceman&serialNumber="+String(props.id)).then(response => {
+        axios.delete("http://localhost:8080/api/serviceman/scooter?userName=serviceman&serialNumber="+String(props.id)).then(response => {
             navigate('/user-profile');
         })
     }

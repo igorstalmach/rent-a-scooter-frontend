@@ -31,7 +31,7 @@ export function AddMoney() {
               title: 'Wpisz odpowiednią wartość'
             })
         } else {
-            axios.patch("http://192.168.1.142:8080/api/user/balance", postData).then(response => {
+            axios.patch("http://localhost:8080/api/user/balance", postData).then(response => {
                 window.location.reload();
             })
         }

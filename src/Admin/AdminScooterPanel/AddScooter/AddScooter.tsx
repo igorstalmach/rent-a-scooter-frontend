@@ -42,7 +42,7 @@ export function AddScooter() {
               title: 'Wypełnij wszystkie pola'
             })
         } else {
-            axios.post("http://192.168.1.142:8080/api/admin/scooter", postData).then(response => {
+            axios.post("http://localhost:8080/api/admin/scooter", postData).then(response => {
                 navigate('/user-profile');
             })
         }

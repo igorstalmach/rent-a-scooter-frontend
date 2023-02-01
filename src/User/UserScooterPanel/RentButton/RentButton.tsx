@@ -19,7 +19,7 @@ export function RentButton(props: Props) {
             "serialNumber": String(props.selectedScooter.id)
         }
 
-        axios.post("http://192.168.1.142:8080/api/scooter/rental", postData).then(response => {
+        axios.post("http://localhost:8080/api/scooter/rental", postData).then(response => {
             navigate('/user-profile');
         })
     }

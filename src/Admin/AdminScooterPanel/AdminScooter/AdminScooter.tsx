@@ -20,7 +20,7 @@ export function AdminScooter(props: Props) {
     function handleDeleteSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
 
-        axios.delete("http://192.168.1.142:8080/api/admin/scooter?userName=admin&serialNumber="+String(props.id)).then(response => {
+        axios.delete("http://localhost:8080/api/admin/scooter?userName=admin&serialNumber="+String(props.id)).then(response => {
             navigate('/user-profile');
         })
     }

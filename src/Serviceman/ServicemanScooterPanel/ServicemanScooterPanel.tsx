@@ -20,7 +20,7 @@ export function ServicemanScooterPanel() {
     const [selectedScooter, setSelectedScooter] = useState<NonfunctionalScooterItem>();
 
     useEffect(() => {
-        axios.get('http://192.168.1.142:8080/api/serviceman/scooter/list?userName=serviceman').then(response => {
+        axios.get('http://localhost:8080/api/serviceman/scooter/list?userName=serviceman').then(response => {
             let newScooterList: NonfunctionalScooterItem[] = []
             for(const scooter of response.data) {
                 let newScooter: NonfunctionalScooterItem = {
