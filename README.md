@@ -44,6 +44,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Opens an Electron window. Must be run after `npm start` (utilizes port 3000).
 
+## Component graph
+<img src="./images/dependency-graph.svg" alt="Service staff view example" width="700">
+
 ## Dependencies
 - Electron ^22.0.2
 - PostCSS ^8.4.21
