@@ -43,3 +43,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `npm run electron`
 
 Opens an Electron window. Must be run after `npm start` (utilizes port 3000).
+
+## Dependencies
+- Electron ^22.0.2
+- PostCSS ^8.4.21
+- Sass ^1.57.1
+- Axios ^22.0.2
+- React Router ^6.7.0
+- Leaflet ^1.9.3
+- SweetAlert2 ^11.7.1
+
+Project bootstrapped with Create React App.
